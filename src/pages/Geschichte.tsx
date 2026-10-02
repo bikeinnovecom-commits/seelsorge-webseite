@@ -77,9 +77,7 @@ export default function Geschichte() {
               {tr.bioParagraphs.map((p, i) => (
                 <p
                   key={i}
-                  className={`font-light leading-relaxed text-[#1f2420]/80 ${
-                    i === 0 ? 'text-xl md:text-2xl font-serif text-[#1f2420]' : 'text-base md:text-lg'
-                  }`}
+                  className="font-serif font-light text-xl md:text-2xl leading-relaxed text-[#1f2420]"
                 >
                   {p}
                 </p>
