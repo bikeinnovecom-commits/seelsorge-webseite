@@ -230,6 +230,15 @@ const de = {
     quotePre: 'Jeder Mensch, der durch unsere Tür geht, bringt eine Geschichte mit.',
     quoteEm: ' Unser Auftrag ist das Zuhören.',
     quoteSource: '— Dr. Hannah Reichert',
+    bioEyebrow: '— Ihr Begleiter',
+    bioParagraphs: [
+      "Ich bin Pastor der Siebenten-Tags-Adventisten-Kirche. Seit mehr als zwanzig Jahren begleite ich nicht nur die Mitglieder meiner Gemeinde, sondern alle Menschen, die eine aufmerksame Zuhörbereitschaft und Begleitung auf emotionaler und spiritueller Ebene suchen.",
+      "Neben meiner theologischen Ausbildung, die 2020 mit einem Doktortitel (PhD) in Missiologie abgeschlossen wurde, bin ich Inhaber eines Masters in Beziehungsbegleitung und Seelsorge (2009).",
+      "Im Jahr 2016 lehrte ich Beziehungsbegleitung an der Theologischen Hochschule in Boissard, Guadeloupe.",
+      "Derzeit wirke ich ehrenamtlich als Seelsorger in der Justizvollzugsanstalt Aschaffenburg in Bayern (Deutschland), wo ich Menschen begleite, die mit teils besonders schwierigen menschlichen, zwischenmenschlichen und existenziellen Situationen konfrontiert sind.",
+      "Mit über zwanzig Jahren Erfahrung in der Begleitung und im menschlichen Miteinander sowie meiner Ausbildung im Bereich ganzheitlicher Ansätze suche ich, den Menschen in seiner Ganzheit zu verstehen und die verschiedenen Dimensionen seines Lebens in den Blick zu nehmen. Mein Begleitungsangebot zielt darauf ab, aufmerksam zu sein für die emotionalen, zwischenmenschlichen, spirituellen und existenziellen Bedürfnisse jedes Menschen — in Respekt vor seiner Geschichte, seinen Überzeugungen und seinem Lebensweg.",
+    ],
+    bioPhotoLabel: 'Foto folgt',
   },
   termine: {
     slides: [
@@ -564,6 +573,15 @@ const en: typeof de = {
     quotePre: 'Every person who walks through our door carries a story.',
     quoteEm: ' Our calling is to listen.',
     quoteSource: '— Dr. Hannah Reichert',
+    bioEyebrow: '— Your Guide',
+    bioParagraphs: [
+      "I am a pastor of the Seventh-day Adventist Church. For over twenty years, I have accompanied not only the members of my community but also anyone who wishes to benefit from attentive listening and support on an emotional and spiritual level.",
+      "In addition to my theological training, crowned by a doctorate (PhD) in Missiology in 2020, I hold a master's degree in counselling and accompaniment obtained in 2009.",
+      "In 2016, I also taught counselling at the School of Theology in Boissard, Guadeloupe.",
+      "I currently serve voluntarily as a chaplain at the Aschaffenburg detention centre in Bavaria, Germany, where I accompany people facing sometimes particularly difficult human, relational and existential situations.",
+      "With over twenty years of experience in accompaniment and human relations, as well as my training in the holistic approach, I seek to understand the person in their entirety and to take into account the different dimensions of their existence. My support aims to be attentive to the emotional, relational, spiritual and existential needs of each person, in respect of their history, convictions and life journey.",
+    ],
+    bioPhotoLabel: 'Photo coming soon',
   },
   termine: {
     slides: [
@@ -899,6 +917,15 @@ const fr: typeof de = {
     quotePre: 'Chaque personne qui franchit notre porte apporte une histoire.',
     quoteEm: ' Notre vocation est d\'écouter.',
     quoteSource: '— Dr. Hannah Reichert',
+    bioEyebrow: '— Votre accompagnateur',
+    bioParagraphs: [
+      "Je suis pasteur de l'Église adventiste du septième jour. Depuis plus de vingt ans, j'accompagne non seulement les membres de ma communauté, mais également toutes personnes qui souhaitent bénéficier d'une écoute attentive et d'un accompagnement sur les plans émotionnel et spirituel.",
+      "En complément de ma formation théologique, couronnée par un doctorat (PhD) en missiologie obtenu en 2020, je suis titulaire d'un master en relation d'aide et en accompagnement, obtenu en 2009.",
+      "En 2016, j'ai également enseigné la relation d'aide au sein de l'École supérieure de théologie de Boissard, en Guadeloupe.",
+      "Actuellement, j'exerce bénévolement comme aumônier au centre de détention d'Aschaffenburg, en Bavière (Allemagne), où j'accompagne des personnes confrontées à des situations humaines, relationnelles et existentielles parfois particulièrement difficiles.",
+      "Fort de plus de vingt années d'expérience dans l'accompagnement et les relations humaines, ainsi que de ma formation dans le domaine de l'approche holistique, je cherche à comprendre la personne dans sa globalité et à prendre en compte les différentes dimensions de son existence. Mon accompagnement vise ainsi à être attentif aux besoins émotionnels, relationnels, spirituels et existentiels de chaque personne, dans le respect de son histoire, de ses convictions et de son parcours.",
+    ],
+    bioPhotoLabel: 'Photo à venir',
   },
   termine: {
     slides: [

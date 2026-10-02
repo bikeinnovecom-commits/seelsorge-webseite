@@ -49,8 +49,48 @@ export default function Geschichte() {
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* BIOGRAPHIE */}
       <section className="py-32 bg-[#efe9df]">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-start">
+          {/* Photo placeholder */}
+          <div className="reveal-left order-2 lg:order-1">
+            <div className="relative h-[600px] bg-[#f8f5ef] border-2 border-dashed border-[#c9a96a]/40 flex flex-col items-center justify-center gap-4 group hover:border-[#c9a96a] transition-colors duration-500">
+              {/* Portrait silhouette */}
+              <svg
+                viewBox="0 0 80 80"
+                className="w-20 h-20 text-[#c9a96a]/40 group-hover:text-[#c9a96a] transition-colors duration-500"
+                fill="currentColor"
+              >
+                <circle cx="40" cy="28" r="16" />
+                <path d="M8 72c0-17.7 14.3-32 32-32s32 14.3 32 32" />
+              </svg>
+              <div className="text-[10px] tracking-[0.5em] uppercase text-[#c9a96a]/60 group-hover:text-[#c9a96a] transition-colors duration-500">
+                {tr.bioPhotoLabel}
+              </div>
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="order-1 lg:order-2 reveal-right">
+            <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-6">{tr.bioEyebrow}</div>
+            <div className="space-y-6">
+              {tr.bioParagraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className={`font-light leading-relaxed text-[#1f2420]/80 ${
+                    i === 0 ? 'text-xl md:text-2xl font-serif text-[#1f2420]' : 'text-base md:text-lg'
+                  }`}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TIMELINE */}
+      <section className="py-32 bg-[#f8f5ef]">
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-16 text-center">
             <h2 className="font-serif text-5xl md:text-6xl reveal-zoom">
