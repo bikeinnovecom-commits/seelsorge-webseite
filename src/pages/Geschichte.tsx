@@ -89,40 +89,6 @@ export default function Geschichte() {
         </div>
       </section>
 
-      {/* TIMELINE */}
-      <section className="py-32 bg-[#f8f5ef]">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="mb-16 text-center">
-            <h2 className="font-serif text-5xl md:text-6xl reveal-zoom">
-              {tr.timelinePre}<em className="italic text-[#8a9a82]">{tr.timelineEm}</em>{tr.timelinePost}
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#c9a96a]/40" />
-            <div className="space-y-16">
-              {tr.timeline.map((e, i) => (
-                <div
-                  key={e.y}
-                  className={`relative grid md:grid-cols-2 gap-10 items-center ${
-                    i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
-                  }`}
-                >
-                  <div className={`md:text-right ${i % 2 === 0 ? "" : "md:text-left"} reveal-left pl-16 md:pl-0`}>
-                    <div className="font-serif text-6xl md:text-7xl text-[#c9a96a]">{e.y}</div>
-                  </div>
-                  <div className={`${i % 2 === 0 ? "md:pl-10" : "md:pr-10 md:text-right"} reveal-right pl-16 md:pl-10`}>
-                    <h3 className="font-serif text-2xl md:text-3xl mb-3">{e.t}</h3>
-                    <p className="text-[#1f2420]/70 font-light leading-relaxed">{e.d}</p>
-                  </div>
-                  <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-[#c9a96a] border-4 border-[#efe9df]" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* VALUES WITH IMAGE */}
       <section className="py-32 bg-[#f8f5ef]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
