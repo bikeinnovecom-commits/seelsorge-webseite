@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --color-ivory: #f8f5ef;
+  --color-cream: #efe9df;
+  --color-sage: #8a9a82;
+  --color-forest: #3a4a3f;
+  --color-gold: #c9a96a;
+  --color-ink: #1f2420;
+}
+
+html, body {
+  background: #f8f5ef;
+  color: #1f2420;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* ========== Animations ========== */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.6); letter-spacing: 0.3em; filter: blur(10px); }
+  to { opacity: 1; transform: scale(1); letter-spacing: normal; filter: blur(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-120px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(120px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes slowZoom {
+  from { transform: scale(1.15); }
+  to   { transform: scale(1); }
+}
+@keyframes expandCenter {
+  from { opacity: 0; transform: scaleX(0.4) scaleY(0.9); transform-origin: center; }
+  to   { opacity: 1; transform: scaleX(1) scaleY(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* reveal on scroll classes */
+.reveal { opacity: 0; }
+.reveal.in-view { animation: fadeUp 1.1s cubic-bezier(.2,.7,.2,1) forwards; }
+.reveal-zoom { opacity: 0; }
+.reveal-zoom.in-view { animation: zoomIn 1.2s cubic-bezier(.2,.7,.2,1) forwards; }
+.reveal-left { opacity: 0; }
+.reveal-left.in-view { animation: slideInLeft 1.1s cubic-bezier(.2,.7,.2,1) forwards; }
+.reveal-right { opacity: 0; }
+.reveal-right.in-view { animation: slideInRight 1.1s cubic-bezier(.2,.7,.2,1) forwards; }
+.reveal-expand { opacity: 0; }
+.reveal-expand.in-view { animation: expandCenter 1.3s cubic-bezier(.2,.7,.2,1) forwards; }
+
+/* fancy underline link */
+.link-ul {
+  position: relative;
+  display: inline-block;
+}
+.link-ul::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.link-ul:hover::after { transform: scaleX(1); transform-origin: left; }
+
+/* horizontal shimmering text */
+.gold-shine {
+  background: linear-gradient(90deg, #c9a96a 0%, #f3e3b8 50%, #c9a96a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* marquee */
+.marquee-track { animation: marquee 50s linear infinite; }
+
+/* slow ken-burns on hero */
+.ken-burns { animation: slowZoom 10s ease-out forwards; }
+
+/* soft noise overlay for premium feel */
+.noise::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #efe9df; }
+::-webkit-scrollbar-thumb { background: #8a9a82; border-radius: 6px; }
+
+/* page transition */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: pageIn .9s cubic-bezier(.2,.7,.2,1) forwards; }
+
+/* number pulsing */
+@keyframes counterPop {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.in-view .count-pop { animation: counterPop 1s ease-out forwards; }
