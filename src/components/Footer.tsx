@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+  const tr = t.footer;
+  const nav = t.nav;
+
   return (
     <footer className="bg-[#1f2420] text-[#efe9df] pt-24 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
@@ -10,28 +15,26 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-14 pb-16 border-b border-white/10">
           <div className="md:col-span-2">
             <div className="font-serif text-4xl md:text-5xl leading-tight mb-6">
-              Ein Raum, in dem <span className="gold-shine italic">die Seele</span> aufatmet.
+              {tr.tagline1}<span className="gold-shine italic">{tr.taglineEm}</span>{tr.tagline2}
             </div>
             <p className="text-white/60 max-w-md font-light leading-relaxed">
-              Sanctus Anima verbindet moderne klinische Psychotherapie mit der stillen Weisheit
-              der adventistischen Tradition — für Menschen, die ganz heilen möchten: Körper,
-              Geist und Seele.
+              {tr.about}
             </p>
           </div>
 
           <div>
-            <h4 className="text-xs tracking-[0.3em] uppercase text-[#c9a96a] mb-5">Praxis</h4>
+            <h4 className="text-xs tracking-[0.3em] uppercase text-[#c9a96a] mb-5">{tr.colPractice}</h4>
             <ul className="space-y-3 text-white/70 font-light">
-              <li><Link to="/" className="link-ul">Startseite</Link></li>
-              <li><Link to="/therapie" className="link-ul">Unsere Therapie</Link></li>
-              <li><Link to="/geschichte" className="link-ul">Unsere Geschichte</Link></li>
-              <li><Link to="/termine" className="link-ul">Terminkalender</Link></li>
-              <li><Link to="/kontakt" className="link-ul">Kontakt</Link></li>
+              <li><Link to="/" className="link-ul">{nav.home}</Link></li>
+              <li><Link to="/therapie" className="link-ul">{nav.therapy}</Link></li>
+              <li><Link to="/geschichte" className="link-ul">{nav.history}</Link></li>
+              <li><Link to="/termine" className="link-ul">{nav.appointments}</Link></li>
+              <li><Link to="/kontakt" className="link-ul">{nav.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs tracking-[0.3em] uppercase text-[#c9a96a] mb-5">Besuchen Sie uns</h4>
+            <h4 className="text-xs tracking-[0.3em] uppercase text-[#c9a96a] mb-5">{tr.colVisit}</h4>
             <address className="not-italic text-white/70 font-light leading-loose">
               Lindenallee 42<br />
               60313 Frankfurt am Main<br />
@@ -43,11 +46,11 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-xs tracking-widest uppercase text-white/40">
-          <div>© 2026 Sanctus Anima — Alle Rechte vorbehalten</div>
+          <div>{tr.rights}</div>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="link-ul">Impressum</a>
-            <a href="#" className="link-ul">Datenschutz</a>
-            <a href="#" className="link-ul">Schweigepflicht</a>
+            <a href="#" className="link-ul">{tr.imprint}</a>
+            <a href="#" className="link-ul">{tr.privacy}</a>
+            <a href="#" className="link-ul">{tr.confidentiality}</a>
           </div>
         </div>
       </div>

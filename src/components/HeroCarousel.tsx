@@ -7,7 +7,14 @@ type Slide = {
   subtitle: string;
 };
 
-export default function HeroCarousel({ slides }: { slides: Slide[] }) {
+type Props = {
+  slides: Slide[];
+  ctaBook: string;
+  ctaLearn: string;
+  scrollHint: string;
+};
+
+export default function HeroCarousel({ slides, ctaBook, ctaLearn, scrollHint }: Props) {
   const [i, setI] = useState(0);
 
   useEffect(() => {
@@ -75,13 +82,13 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
                 href="/termine"
                 className="px-8 py-4 bg-[#c9a96a] text-[#1f2420] text-xs tracking-[0.3em] uppercase hover:bg-white transition-all duration-500"
               >
-                Termin vereinbaren
+                {ctaBook}
               </a>
               <a
                 href="/therapie"
                 className="px-8 py-4 border border-white/60 text-white text-xs tracking-[0.3em] uppercase hover:bg-white hover:text-[#1f2420] transition-all duration-500"
               >
-                Mehr erfahren
+                {ctaLearn}
               </a>
             </div>
           </div>
@@ -111,7 +118,7 @@ export default function HeroCarousel({ slides }: { slides: Slide[] }) {
 
       {/* Scroll hint */}
       <div className="absolute bottom-10 left-6 lg:left-10 z-10 text-white/70 text-[10px] tracking-[0.5em] uppercase hidden md:block">
-        <div style={{ animation: "floaty 3s ease-in-out infinite" }}>Scrollen ↓</div>
+        <div style={{ animation: "floaty 3s ease-in-out infinite" }}>{scrollHint}</div>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import Therapie from "./pages/Therapie";
 import Geschichte from "./pages/Geschichte";
 import Termine from "./pages/Termine";
 import Kontakt from "./pages/Kontakt";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -18,7 +19,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <ScrollToTop />
       <Nav />
       <Routes>
@@ -30,6 +31,6 @@ export default function App() {
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
-    </>
+    </LanguageProvider>
   );
 }

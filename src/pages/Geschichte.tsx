@@ -1,61 +1,50 @@
 import HeroCarousel from "../components/HeroCarousel";
 import { useReveal } from "../hooks/useReveal";
+import { useLanguage } from "../context/LanguageContext";
 
-const slides = [
-  {
-    img: "https://images.pexels.com/photos/8806073/pexels-photo-8806073.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000",
-    eyebrow: "Seit 1998",
-    title: (
-      <>
-        Eine Praxis, geboren aus <em className="gold-shine not-italic">Hoffnung</em>.
-      </>
-    ),
-    subtitle:
-      "Was als kleines Zimmer in Frankfurt begann, ist heute ein Ort der Zuwendung für über zweitausend Menschen geworden.",
-  },
-  {
-    img: "https://images.pexels.com/photos/5082959/pexels-photo-5082959.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000",
-    eyebrow: "Vier Generationen · Eine Vision",
-    title: (
-      <>
-        Familie, Glaube und <em className="gold-shine not-italic">Fürsorge</em>.
-      </>
-    ),
-    subtitle:
-      "Von Großmutter Elise bis heute: ein stiller Faden adventistischer Nächstenliebe zieht sich durch unsere Geschichte.",
-  },
-];
-
-const timeline = [
-  { y: "1998", t: "Die ersten Schritte", d: "Dr. Hannah Reichert eröffnet ihre erste Praxis in einem umgebauten Pfarrzimmer in Frankfurt-Sachsenhausen." },
-  { y: "2003", t: "Erweiterung des Teams", d: "Zwei Kolleginnen schließen sich an — die Praxis beginnt, Paartherapie und Kinderangebote zu formalisieren." },
-  { y: "2010", t: "Umzug in die Lindenallee", d: "Ein stilles Altbauensemble wird zur neuen Heimat: hohe Räume, Lichtfluten, Garten." },
-  { y: "2016", t: "EMDR und Trauma-Zentrum", d: "Spezialisierung auf Traumatherapie — in Zusammenarbeit mit der Universitätsklinik." },
-  { y: "2021", t: "Sabbat-Retreats", d: "Erste Wochenend-Rückzüge auf einem adventistischen Landgut in der Rhön." },
-  { y: "2026", t: "Heute", d: "Fünf Therapeutinnen, drei Kinderräume, ein ruhiges Zuhause für den Menschen." },
+const SLIDE_IMGS = [
+  "https://images.pexels.com/photos/8806073/pexels-photo-8806073.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000",
+  "https://images.pexels.com/photos/5082959/pexels-photo-5082959.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=2000",
 ];
 
 export default function Geschichte() {
   useReveal();
+  const { t } = useLanguage();
+  const tr = t.geschichte;
+  const hero = t.hero;
+
+  const slides = tr.slides.map((s, i) => ({
+    img: SLIDE_IMGS[i],
+    eyebrow: s.eyebrow,
+    title: (
+      <>
+        {s.pre}<em className="gold-shine not-italic">{s.em}</em>{s.post}
+      </>
+    ),
+    subtitle: s.subtitle,
+  }));
 
   return (
     <main className="page-enter">
-      <HeroCarousel slides={slides} />
+      <HeroCarousel
+        slides={slides}
+        ctaBook={hero.ctaBook}
+        ctaLearn={hero.ctaLearn}
+        scrollHint={hero.scroll}
+      />
 
       {/* OPENING LETTER */}
       <section className="py-32 bg-[#f8f5ef]">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-6 reveal">
-            — Ein Brief
+            {tr.letterEyebrow}
           </div>
           <h2 className="font-serif text-5xl md:text-7xl leading-tight mb-10 reveal-zoom">
-            „Wir wurden <em className="italic text-[#8a9a82]">nicht gegründet</em> — <br />
-            wir sind <span className="gold-shine">gewachsen</span>.”
+            {tr.letterPre}<em className="italic text-[#8a9a82]">{tr.letterEm}</em>{tr.letterPost}<br />
+            {tr.letterLine2Pre}<span className="gold-shine">{tr.letterLine2Em}</span>{tr.letterLine2Post}
           </h2>
           <p className="text-lg md:text-xl font-light leading-relaxed text-[#1f2420]/75 reveal">
-            Unsere Geschichte beginnt nicht mit einem Businessplan, sondern mit einer Frage:
-            Was braucht ein Mensch, um wieder atmen zu können? Vor über fünfundzwanzig Jahren
-            haben wir angefangen, auf diese Frage zu hören. Wir hören immer noch zu.
+            {tr.letterText}
           </p>
         </div>
       </section>
@@ -65,14 +54,14 @@ export default function Geschichte() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="mb-16 text-center">
             <h2 className="font-serif text-5xl md:text-6xl reveal-zoom">
-              Unsere <em className="italic text-[#8a9a82]">Chronik</em>
+              {tr.timelinePre}<em className="italic text-[#8a9a82]">{tr.timelineEm}</em>{tr.timelinePost}
             </h2>
           </div>
 
           <div className="relative">
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-[#c9a96a]/40" />
             <div className="space-y-16">
-              {timeline.map((e, i) => (
+              {tr.timeline.map((e, i) => (
                 <div
                   key={e.y}
                   className={`relative grid md:grid-cols-2 gap-10 items-center ${
@@ -107,29 +96,12 @@ export default function Geschichte() {
             </div>
           </div>
           <div className="reveal-right">
-            <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-6">— Unsere Werte</div>
+            <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-6">{tr.valuesEyebrow}</div>
             <h2 className="font-serif text-5xl md:text-6xl mb-10 leading-tight">
-              Was uns <em className="italic text-[#8a9a82]">trägt</em>.
+              {tr.valuesPre}<em className="italic text-[#8a9a82]">{tr.valuesEm}</em>{tr.valuesPost}
             </h2>
 
-            {[
-              {
-                t: "Sabbatruhe",
-                d: "Ein Rhythmus von Arbeit und Innehalten — der Körper darf, was die Seele braucht.",
-              },
-              {
-                t: "Ganzheitlichkeit",
-                d: "Wir sehen Körper, Geist und Seele als eine untrennbare Einheit.",
-              },
-              {
-                t: "Hoffnung",
-                d: "Nicht als Phrase, sondern als Praxis. Es gibt immer einen nächsten Schritt.",
-              },
-              {
-                t: "Vertraulichkeit",
-                d: "Alles, was in unseren Räumen geteilt wird, bleibt dort.",
-              },
-            ].map((v, i) => (
+            {tr.values.map((v, i) => (
               <div
                 key={v.t}
                 className="border-t border-[#c9a96a]/30 py-6 reveal"
@@ -146,13 +118,13 @@ export default function Geschichte() {
       {/* QUOTE */}
       <section className="py-32 bg-[#3a4a3f] text-[#f8f5ef]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="font-serif text-6xl text-[#c9a96a] mb-6">“</div>
+          <div className="font-serif text-6xl text-[#c9a96a] mb-6">"</div>
           <blockquote className="font-serif text-3xl md:text-5xl italic leading-tight reveal-zoom">
-            Jeder Mensch, der durch unsere Tür geht, bringt eine Geschichte mit.
-            <span className="gold-shine not-italic"> Unser Werk ist, zuzuhören.</span>
+            {tr.quotePre}
+            <span className="gold-shine not-italic">{tr.quoteEm}</span>
           </blockquote>
           <div className="text-sm tracking-[0.3em] uppercase mt-10 text-white/60">
-            — Dr. Hannah Reichert
+            {tr.quoteSource}
           </div>
         </div>
       </section>

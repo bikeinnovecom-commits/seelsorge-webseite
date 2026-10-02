@@ -1,18 +1,24 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import type { Lang } from "../i18n/translations";
 
-const links = [
-  { to: "/", label: "Startseite" },
-  { to: "/therapie", label: "Unsere Therapie" },
-  { to: "/geschichte", label: "Unsere Geschichte" },
-  { to: "/termine", label: "Terminkalender" },
-  { to: "/kontakt", label: "Kontakt" },
-];
+const LANGS: Lang[] = ['de', 'en', 'fr'];
 
 export default function Nav() {
+  const { lang, setLang, t } = useLanguage();
+  const tr = t.nav;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const loc = useLocation();
+
+  const links = [
+    { to: "/", label: tr.home },
+    { to: "/therapie", label: tr.therapy },
+    { to: "/geschichte", label: tr.history },
+    { to: "/termine", label: tr.appointments },
+    { to: "/kontakt", label: tr.contact },
+  ];
 
   useEffect(() => {
     const onS = () => setScrolled(window.scrollY > 40);
@@ -49,7 +55,7 @@ export default function Nav() {
                 scrolled ? "text-[#8a9a82]" : "text-white/70"
               }`}
             >
-              Adventistische Psychotherapie
+              {tr.tagline}
             </div>
           </div>
         </Link>
@@ -59,6 +65,7 @@ export default function Nav() {
             <NavLink
               key={l.to}
               to={l.to}
+              end={l.to === "/"}
               className={({ isActive }) =>
                 `link-ul text-sm tracking-[0.15em] uppercase transition-colors ${
                   scrolled
@@ -76,16 +83,41 @@ export default function Nav() {
           ))}
         </nav>
 
-        <Link
-          to="/termine"
-          className={`hidden lg:inline-block px-6 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-500 border ${
-            scrolled
-              ? "border-[#1f2420] text-[#1f2420] hover:bg-[#1f2420] hover:text-[#f8f5ef]"
-              : "border-white text-white hover:bg-white hover:text-[#1f2420]"
-          }`}
-        >
-          Termin buchen
-        </Link>
+        <div className="hidden lg:flex items-center gap-4">
+          {/* Language switcher */}
+          <div className="flex items-center gap-1">
+            {LANGS.map((l, idx) => (
+              <span key={l} className="flex items-center gap-1">
+                {idx > 0 && (
+                  <span className={`text-[10px] ${scrolled ? 'text-[#1f2420]/25' : 'text-white/30'}`}>|</span>
+                )}
+                <button
+                  onClick={() => setLang(l)}
+                  className={`text-[10px] tracking-[0.25em] uppercase transition-colors px-0.5 ${
+                    lang === l
+                      ? 'text-[#c9a96a]'
+                      : scrolled
+                      ? 'text-[#1f2420]/50 hover:text-[#c9a96a]'
+                      : 'text-white/50 hover:text-[#c9a96a]'
+                  }`}
+                >
+                  {l.toUpperCase()}
+                </button>
+              </span>
+            ))}
+          </div>
+
+          <Link
+            to="/termine"
+            className={`px-6 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-500 border ${
+              scrolled
+                ? "border-[#1f2420] text-[#1f2420] hover:bg-[#1f2420] hover:text-[#f8f5ef]"
+                : "border-white text-white hover:bg-white hover:text-[#1f2420]"
+            }`}
+          >
+            {tr.book}
+          </Link>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
@@ -104,6 +136,7 @@ export default function Nav() {
             <NavLink
               key={l.to}
               to={l.to}
+              end={l.to === "/"}
               className={({ isActive }) =>
                 `block text-sm tracking-[0.2em] uppercase py-2 ${
                   isActive ? "text-[#c9a96a]" : "text-[#1f2420]"
@@ -113,6 +146,20 @@ export default function Nav() {
               {l.label}
             </NavLink>
           ))}
+          {/* Mobile language switcher */}
+          <div className="flex gap-4 pt-2 border-t border-[#c9a96a]/20">
+            {LANGS.map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${
+                  lang === l ? 'text-[#c9a96a]' : 'text-[#1f2420]/50'
+                }`}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </header>
