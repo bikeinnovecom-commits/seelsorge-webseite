@@ -42,7 +42,7 @@ export default function Geschichte() {
           <p className="font-serif text-2xl md:text-3xl leading-relaxed text-[#1f2420] mb-8 reveal-zoom">
             {tr.letterP1}
           </p>
-          <p className="font-serif text-xl md:text-2xl font-light leading-relaxed text-[#1f2420]/75 reveal">
+          <p className="font-serif text-2xl md:text-3xl leading-relaxed text-[#1f2420] reveal">
             {tr.letterP2}
           </p>
         </div>
