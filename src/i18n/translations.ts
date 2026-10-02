@@ -206,6 +206,10 @@ const de = {
     letterLine2Post: '."',
     letterText:
       'Unsere Geschichte beginnt nicht mit einem Businessplan, sondern mit einer Frage: Was braucht ein Mensch, um wieder atmen zu können? Vor über fünfundzwanzig Jahren haben wir angefangen, auf diese Frage zu hören. Wir hören immer noch zu.',
+    letterP1:
+      'Unsere Geschichte hat nicht mit einem Businessplan begonnen, sondern mit einer einfachen und zutiefst menschlichen Frage: Was braucht ein Mensch, um wieder atmen zu können?',
+    letterP2:
+      'Vor mehr als fünfundzwanzig Jahren haben wir damit begonnen, auf diese Frage zu hören. Seither hören wir weiter zu, begleiten und gehen Seite an Seite mit jenen, die einen Raum suchen, in dem sie ihre Wunden ablegen, wieder Atem schöpfen und, nach und nach, mit mehr Frieden, Sinn und Hoffnung ihren Weg weitergehen können.',
     timelinePre: 'Unsere ',
     timelineEm: 'Chronik',
     timelinePost: '',
@@ -549,6 +553,10 @@ const en: typeof de = {
     letterLine2Post: '."',
     letterText:
       'Our story does not begin with a business plan, but with a question: what does a person need to breathe again? Over twenty-five years ago we began listening to that question. We are still listening.',
+    letterP1:
+      'Our story did not begin with a business plan, but with a simple and deeply human question: what does a person need in order to breathe again?',
+    letterP2:
+      'Over twenty-five years ago, we began by listening to that question. Since then, we have continued to listen, to accompany and to walk alongside those who seek a space in which to set down their wounds, find their breath again and, little by little, resume the path of life with greater peace, meaning and hope.',
     timelinePre: 'Our ',
     timelineEm: 'Chronicle',
     timelinePost: '',
@@ -893,6 +901,10 @@ const fr: typeof de = {
     letterLine2Post: '. »',
     letterText:
       "Notre histoire ne commence pas par un business plan, mais par une question : de quoi a besoin un être humain pour respirer à nouveau ? Il y a plus de vingt-cinq ans, nous avons commencé à écouter cette question. Nous écoutons encore.",
+    letterP1:
+      "Notre histoire n'a pas commencé avec un business plan, mais avec une question simple et profondément humaine : de quoi une personne a-t-elle besoin pour pouvoir respirer à nouveau ?",
+    letterP2:
+      "Il y a plus de vingt-cinq ans, nous avons commencé par écouter cette question. Depuis, nous continuons à écouter, à accompagner et à cheminer aux côtés de celles et ceux qui cherchent un espace où déposer leurs blessures, retrouver leur souffle et, peu à peu, reprendre le chemin de la vie avec davantage de paix, de sens et d'espérance.",
     timelinePre: 'Notre ',
     timelineEm: 'Chronique',
     timelinePost: '',

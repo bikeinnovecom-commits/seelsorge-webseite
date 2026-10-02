@@ -36,15 +36,14 @@ export default function Geschichte() {
       {/* OPENING LETTER */}
       <section className="py-32 bg-[#f8f5ef]">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-6 reveal">
+          <div className="text-xs tracking-[0.4em] uppercase text-[#c9a96a] mb-10 reveal">
             {tr.letterEyebrow}
           </div>
-          <h2 className="font-serif text-5xl md:text-7xl leading-tight mb-10 reveal-zoom">
-            {tr.letterPre}<em className="italic text-[#8a9a82]">{tr.letterEm}</em>{tr.letterPost}<br />
-            {tr.letterLine2Pre}<span className="gold-shine">{tr.letterLine2Em}</span>{tr.letterLine2Post}
-          </h2>
-          <p className="text-lg md:text-xl font-light leading-relaxed text-[#1f2420]/75 reveal">
-            {tr.letterText}
+          <p className="font-serif text-2xl md:text-3xl leading-relaxed text-[#1f2420] mb-8 reveal-zoom">
+            {tr.letterP1}
+          </p>
+          <p className="font-serif text-xl md:text-2xl font-light leading-relaxed text-[#1f2420]/75 reveal">
+            {tr.letterP2}
           </p>
         </div>
       </section>
